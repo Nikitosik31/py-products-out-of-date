@@ -1,17 +1,17 @@
 import datetime
 from unittest.mock import patch, MagicMock
-
 import pytest
-
 from app.main import outdated_products
 
+
 real_date = datetime.date
-def make_product(name, date, price=100):
+def make_product(name: str, date: datetime.date, price: int=100) -> dict:
     return {
         "name": name,
         "expiration_date": date,
         "price": price
     }
+
 
 @pytest.mark.parametrize(
     "products, today, expected",
@@ -52,7 +52,7 @@ def make_product(name, date, price=100):
 @patch("app.main.datetime.date")
 def test_outdated_products(
         mock_date: MagicMock,
-        products,
+        products: list,
         today: datetime.date,
         expected: list[str]
 ) -> None:
