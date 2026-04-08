@@ -5,7 +5,9 @@ from app.main import outdated_products
 
 
 real_date = datetime.date
-def make_product(name: str, date: datetime.date, price: int=100) -> dict:
+
+
+def make_product(name: str, date: datetime.date, price: int = 100) -> dict:
     return {
         "name": name,
         "expiration_date": date,
